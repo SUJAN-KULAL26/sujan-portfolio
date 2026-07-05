@@ -1,0 +1,60 @@
+@import 'tailwindcss';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/inter/800.css';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background: #0a0a0f;
+    color: #f3f4f6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::selection {
+    background: rgba(129, 140, 248, 0.35);
+  }
+}
+
+@layer utilities {
+  .section-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-panel {
+    @apply rounded-xl border border-slate-800/80 bg-[#111113] shadow-[0_12px_40px_rgba(0,0,0,0.25)];
+  }
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top left, rgba(129, 140, 248, 0.08), transparent 30%),
+    radial-gradient(circle at top right, rgba(34, 211, 238, 0.03), transparent 26%),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.01), transparent 12%);
+  opacity: 0.95;
+}
