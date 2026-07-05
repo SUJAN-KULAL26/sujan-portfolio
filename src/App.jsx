@@ -20,27 +20,21 @@ function App() {
       .map((id) => document.getElementById(id))
       .filter(Boolean)
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries.filter((entry) => entry.isIntersecting)
-
-        if (!visibleEntries.length) {
-          return
-        }
-
-        visibleEntries.sort((first, second) => second.intersectionRatio - first.intersectionRatio)
-        setActiveSection(visibleEntries[0].target.id)
-      },
-      { threshold: [0.25, 0.4, 0.6, 0.8], rootMargin: '-20% 0px -55% 0px' },
-    )
-
-    sectionElements.forEach((element) => observer.observe(element))
-
     const updateScrollProgress = () => {
       const scrollTop = window.scrollY
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight
       const progress = totalHeight > 0 ? (scrollTop / totalHeight) * 100 : 0
       setScrollProgress(progress)
+
+      const scrollAnchor = scrollTop + 160
+      const active = [...sectionElements]
+        .sort((first, second) => first.offsetTop - second.offsetTop)
+        .filter((element) => element.offsetTop <= scrollAnchor)
+        .at(-1)
+
+      if (active) {
+        setActiveSection(active.id)
+      }
     }
 
     updateScrollProgress()
@@ -48,7 +42,6 @@ function App() {
     window.addEventListener('resize', updateScrollProgress)
 
     return () => {
-      observer.disconnect()
       window.removeEventListener('scroll', updateScrollProgress)
       window.removeEventListener('resize', updateScrollProgress)
     }

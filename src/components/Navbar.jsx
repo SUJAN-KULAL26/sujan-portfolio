@@ -45,7 +45,7 @@ export function Navbar({ activeSection, scrollProgress }) {
           className="text-xl font-extrabold tracking-tight text-white transition hover:text-indigo-200"
           aria-label="Go to home"
         >
-          SP<span className="text-indigo-400">.</span>
+          SP<span className="text-indigo-700 dark:text-indigo-400">.</span>
         </button>
 
         <nav className="hidden items-center gap-1 lg:flex">
@@ -54,7 +54,7 @@ export function Navbar({ activeSection, scrollProgress }) {
               key={item.id}
               type="button"
               onClick={() => handleNavClick(item.id)}
-              className={`rounded-lg px-3 py-2 text-sm font-medium transition ${activeSection === item.id ? 'text-indigo-300' : 'text-slate-300 hover:text-white'}`}
+              className={`rounded-lg px-3 py-2 text-sm font-medium transition ${activeSection === item.id ? 'text-indigo-700 dark:text-indigo-300' : 'text-slate-300 hover:text-white'}`}
             >
               {item.label}
             </button>
@@ -68,7 +68,7 @@ export function Navbar({ activeSection, scrollProgress }) {
             className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-800 bg-[#111113] text-slate-200 transition hover:border-indigo-400 hover:text-indigo-200"
             aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
           >
-            {isDark ? <SunMedium className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            {isDark ? <Moon className="h-5 w-5" /> : <SunMedium className="h-5 w-5" />}
           </button>
 
           <button
@@ -92,7 +92,7 @@ export function Navbar({ activeSection, scrollProgress }) {
                 key={item.id}
                 type="button"
                 onClick={() => handleNavClick(item.id)}
-                className={`rounded-lg border px-4 py-3 text-left text-sm font-medium transition ${activeSection === item.id ? 'border-indigo-500 bg-indigo-500/10 text-indigo-300' : 'border-slate-800 bg-[#111113] text-slate-200 hover:border-indigo-500/60 hover:text-white'}`}
+                className={`rounded-lg border px-4 py-3 text-left text-sm font-medium transition ${activeSection === item.id ? 'border-indigo-700 dark:border-indigo-500 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-300' : 'border-slate-800 bg-[#111113] text-slate-200 hover:border-indigo-500/60 hover:text-white'}`}
               >
                 {item.label}
               </button>

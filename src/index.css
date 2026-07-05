@@ -11,7 +11,30 @@
 
 @layer base {
   :root {
+    --page-bg: #0a0a0f;
+    --page-text: #f3f4f6;
+    --page-heading: #ffffff;
+    --page-muted: #9ca3af;
+    --page-border: #1f2937;
+    --page-surface: #111113;
+    --page-surface-alt: #0b0b10;
+    --page-surface-soft: #14141a;
+    --page-shadow: rgba(0, 0, 0, 0.25);
     color-scheme: dark;
+  }
+
+  html.light {
+    /* mostly original neutral light palette with a subtle blue tint in background */
+    --page-bg: linear-gradient(120deg, #ffffff 0%, #f8fcff 60%);
+    --page-text: #0f172a;
+    --page-heading: #020617;
+    --page-muted: #475569;
+    --page-border: #dbe2ee;
+    --page-surface: #ffffff;
+    --page-surface-alt: #f8fafc;
+    --page-surface-soft: #eef2f7;
+    --page-shadow: rgba(15, 23, 42, 0.08);
+    color-scheme: light;
   }
 
   html {
@@ -21,8 +44,8 @@
   body {
     margin: 0;
     font-family: var(--font-sans);
-    background: #0a0a0f;
-    color: #f3f4f6;
+    background: var(--page-bg);
+    color: var(--page-text);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -35,6 +58,57 @@
   ::selection {
     background: rgba(129, 140, 248, 0.35);
   }
+
+  html.light .text-white,
+  html.light .text-slate-100,
+  html.light .text-slate-200 {
+    color: var(--page-heading) !important;
+  }
+
+  html.light .text-slate-300 {
+    color: var(--page-text) !important;
+  }
+
+  html.light .text-slate-400,
+  html.light .text-slate-500 {
+    color: var(--page-muted) !important;
+  }
+
+  html.light .border-slate-800,
+  html.light .border-slate-800\/90,
+  html.light .border-slate-700 {
+    border-color: var(--page-border) !important;
+  }
+
+  html.light .bg-\[\#0a0a0f\],
+  html.light .bg-\[\#111113\],
+  html.light .bg-\[\#0b0b10\],
+  html.light .bg-\[\#0e0e12\],
+  html.light .bg-\[\#131318\],
+  html.light .bg-\[\#14141a\] {
+    background-color: var(--page-surface) !important;
+  }
+
+  html.light .bg-\[\#0a0a0f\]\/96,
+  html.light .bg-\[\#0a0a0f\]\/98 {
+    background-color: rgba(247, 248, 252, 0.96) !important;
+  }
+
+  html.light .bg-\[\#111113\]\/98 {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+  }
+
+  html.light .bg-slate-900 {
+    background-color: #dbe2ee !important;
+  }
+
+  html.light .bg-slate-900\/80 {
+    background-color: rgba(219, 226, 238, 0.8) !important;
+  }
+
+  html.light .section-panel {
+    box-shadow: 0 12px 40px var(--page-shadow);
+  }
 }
 
 @layer utilities {
@@ -43,7 +117,9 @@
   }
 
   .section-panel {
-    @apply rounded-xl border border-slate-800/80 bg-[#111113] shadow-[0_12px_40px_rgba(0,0,0,0.25)];
+    background: var(--page-surface);
+    border-color: var(--page-border);
+    @apply rounded-xl border shadow-[0_12px_40px_rgba(0,0,0,0.25)];
   }
 }
 
@@ -53,8 +129,7 @@ body::before {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at top left, rgba(129, 140, 248, 0.08), transparent 30%),
-    radial-gradient(circle at top right, rgba(34, 211, 238, 0.03), transparent 26%),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.01), transparent 12%);
+    radial-gradient(circle at top left, rgba(14,165,201,0.03), transparent 22%),
+    linear-gradient(to bottom, rgba(255,255,255,0.02), transparent 12%);
   opacity: 0.95;
 }

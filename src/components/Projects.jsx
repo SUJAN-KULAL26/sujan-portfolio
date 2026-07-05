@@ -3,13 +3,13 @@ import {
   CheckCircle2,
   Clock3,
   GitBranch,
-  LayoutGrid,
   Lock,
   Network,
-  Users,
+  ExternalLink,
 } from 'lucide-react'
 import { RevealSection } from './RevealSection.jsx'
 import { SectionHeading } from './SectionHeading.jsx'
+import { useTheme } from '../context/useTheme.jsx'
 
 const projects = [
   {
@@ -19,8 +19,9 @@ const projects = [
     tech: ['Node.js', 'Express.js', 'MongoDB', 'JWT'],
     icon: Network,
     banner: 'from-indigo-500 via-violet-500 to-slate-900',
-    repo: 'https://github.com/SUJAN-KULAL26',
-    status: 'Deployment Coming Soon',
+    repo: 'https://github.com/SUJAN-KULAL26/smartcare-hms',
+    live: 'https://smartcare-hms-frontend.onrender.com',
+    status: 'Live Demo',
   },
   {
     title: 'HemoInsight AI',
@@ -39,34 +40,23 @@ const projects = [
     tech: ['Spring Boot', 'MongoDB', 'AES', 'RSA', 'SHA-256'],
     icon: Lock,
     banner: 'from-violet-500 via-fuchsia-500 to-slate-900',
-    repo: 'https://github.com/SUJAN-KULAL26',
-    live: '#',
+    repo: 'https://github.com/SUJAN-KULAL26/Secure-Cloud-Storage-System',
+    live: 'https://jay-file-manager.vercel.app',
     status: 'Live Demo',
   },
-  {
-    title: 'Smart Seminar Hall Management System',
-    description: 'Student-facing booking dashboard built as Frontend Developer — responsive hall selection UI with client-side validation.',
-    checklist: ['Responsive dashboard UI', 'Booking forms', 'Client-side validation', 'GitHub feature-branch workflow'],
-    tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
-    icon: LayoutGrid,
-    banner: 'from-slate-700 via-indigo-500 to-slate-900',
-    repo: 'https://github.com/SUJAN-KULAL26',
-    status: 'Deployment Coming Soon',
-  },
-  {
-    title: 'Smart India Hackathon 2025',
-    description: "Led team 'Neuronauts' in designing a digital mental health support system for students, from wireframes to interactive prototypes.",
-    checklist: ['Team leadership', 'UI/UX design', 'Interactive prototyping', 'Solution planning & presentation'],
-    tech: ['Figma', 'UI/UX Design', 'Wireframing'],
-    icon: Users,
-    banner: 'from-indigo-500 via-slate-700 to-slate-900',
-    badge: 'Team Lead',
-  },
+  // Removed older/temporary projects per user request
 ]
 
 function ProjectPill({ children }) {
+  const { isDark } = useTheme()
+
+  const lightStyles = { color: '#065e4a', backgroundColor: '#ecfeff', borderColor: 'rgba(6,78,59,0.18)' }
+
   return (
-    <span className="inline-flex rounded-lg border border-cyan-400/25 bg-cyan-400/10 px-3 py-1.5 text-xs font-medium text-cyan-200">
+    <span
+      className="inline-flex rounded-lg border border-cyan-200/40 dark:border-cyan-400/25 bg-cyan-50 dark:bg-cyan-400/10 px-3 py-1.5 text-xs font-medium text-cyan-700 dark:text-cyan-200"
+      style={isDark ? undefined : lightStyles}
+    >
       {children}
     </span>
   )
@@ -74,6 +64,7 @@ function ProjectPill({ children }) {
 
 function ProjectCard({ project }) {
   const Icon = project.icon
+  const { isDark } = useTheme()
 
   return (
     <article className="section-panel overflow-hidden">
@@ -94,7 +85,7 @@ function ProjectCard({ project }) {
         <ul className="grid gap-2 sm:grid-cols-2">
           {project.checklist.map((item) => (
             <li key={item} className="flex items-start gap-2 text-sm text-slate-300">
-              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-400" />
+              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-700 dark:text-indigo-400" />
               <span>{item}</span>
             </li>
           ))}
@@ -120,13 +111,16 @@ function ProjectCard({ project }) {
           ) : null}
 
           {project.live ? (
-            <a
-              href={project.live}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-400"
-            >
-              Live Demo
+            <a href={project.live} target="_blank" rel="noreferrer" className="rounded-full p-[2px] bg-gradient-to-r from-cyan-400 to-violet-500">
+              <span
+                className={`flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold transition`}
+                style={{
+                  backgroundColor: isDark ? 'rgba(7,10,14,0.85)' : '#ffffff',
+                }}
+              >
+                <span className={isDark ? 'text-white' : 'text-slate-900'}>Live Demo</span>
+                <ExternalLink className={isDark ? 'h-4 w-4 text-white' : 'h-4 w-4 text-slate-900'} />
+              </span>
             </a>
           ) : (
             <span className="inline-flex items-center gap-2 rounded-lg border border-slate-800 px-4 py-2.5 text-sm font-semibold text-slate-400">
@@ -136,7 +130,7 @@ function ProjectCard({ project }) {
           )}
 
           {project.badge ? (
-            <span className="inline-flex items-center rounded-lg border border-indigo-500/30 bg-indigo-500/10 px-4 py-2.5 text-sm font-semibold text-indigo-300">
+            <span className="inline-flex items-center rounded-lg border border-indigo-200/60 dark:border-indigo-500/30 bg-indigo-50 dark:bg-indigo-500/10 px-4 py-2.5 text-sm font-semibold text-indigo-700 dark:text-indigo-300">
               {project.badge}
             </span>
           ) : null}
@@ -152,8 +146,8 @@ export function Projects() {
       <div className="section-shell">
         <SectionHeading
           eyebrow="Projects"
-          title="Featured Work"
-          subtitle="Real-world systems spanning backend architecture, AI-powered tools, and full-stack web applications"
+          title="Turning Ideas into Software"
+          subtitle="Crafting thoughtful software through curiosity, problem-solving, and continuous learning."
         />
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2 xl:grid-cols-3">

@@ -6,7 +6,7 @@ const stats = [
   { icon: GraduationCap, value: '9.5', label: 'CGPA' },
   { icon: Code2, value: '50+', label: 'LeetCode Problems' },
   { icon: Briefcase, value: '5', label: 'Projects Built' },
-  { icon: Award, value: '4', label: 'Certifications' },
+  { icon: Award, value: '6', label: 'Certifications' },
 ]
 
 export function About() {
@@ -22,12 +22,12 @@ export function About() {
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           <div className="section-panel p-6 sm:p-8">
             <p className="text-base leading-8 text-slate-300">
-              Final-year Information Science Engineering student with hands-on experience in full-stack development, backend systems, and secure application design. Interested in scalable systems, cloud architecture, and algorithmic problem-solving. Active in hackathons, technical leadership, and collaborative software development. Currently focused on deepening my understanding of distributed systems and DevOps practices.
+              I&apos;m a final-year Information Science Engineering student who builds full-stack systems and cares about what happens underneath them — architecture, security, and scale. I&apos;ve led teams through hackathons and real projects, and I&apos;m currently going deeper into distributed systems and DevOps to understand how software holds up under real-world load.
             </p>
           </div>
 
           <div className="section-panel p-6 sm:p-8">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-indigo-400">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-indigo-700 dark:text-indigo-400">
               ✨ Currently Exploring
             </p>
             <ul className="space-y-3 text-sm leading-7 text-slate-300 sm:text-base">
@@ -52,8 +52,8 @@ export function About() {
 
             return (
               <div key={stat.label} className="section-panel flex flex-col items-center px-5 py-6 text-center">
-                <Icon className="mb-4 h-6 w-6 text-indigo-400" />
-                <p className="text-3xl font-bold text-indigo-300">{stat.value}</p>
+                <Icon className="mb-4 h-6 w-6 text-indigo-700 dark:text-indigo-400" />
+                <p className="text-3xl font-bold text-indigo-700 dark:text-indigo-300">{stat.value}</p>
                 <p className="mt-2 text-sm text-slate-400">{stat.label}</p>
               </div>
             )

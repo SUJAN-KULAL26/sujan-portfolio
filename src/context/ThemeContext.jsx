@@ -1,6 +1,5 @@
-import { createContext, useEffect, useMemo, useState } from 'react'
-
-const ThemeContext = createContext(null)
+import { useEffect, useMemo, useState } from 'react'
+import { ThemeContext } from './themeContext.js'
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState('dark')
@@ -8,6 +7,7 @@ export function ThemeProvider({ children }) {
   useEffect(() => {
     const root = document.documentElement
     root.classList.toggle('dark', theme === 'dark')
+    root.classList.toggle('light', theme === 'light')
     root.style.colorScheme = theme
   }, [theme])
 
@@ -22,5 +22,3 @@ export function ThemeProvider({ children }) {
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
 }
-
-export { ThemeContext }

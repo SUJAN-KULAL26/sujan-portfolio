@@ -3,7 +3,7 @@ import { RevealSection } from './RevealSection.jsx'
 
 const stats = [
   { value: '2', label: 'Leadership Roles' },
-  { value: '2', label: 'Hackathons' },
+  { value: '1', label: 'Hackathons' },
   { value: '5', label: 'Projects Shipped' },
 ]
 
@@ -42,21 +42,21 @@ export function Experience() {
     <RevealSection id="experience" className="py-20 lg:py-24">
       <div className="section-shell">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.32em] text-indigo-400">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.32em] text-indigo-700 dark:text-indigo-400">
             Experience
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-            Experience & Leadership
+            Building Beyond Code
           </h2>
           <p className="mt-4 text-sm leading-7 text-slate-400 sm:text-base">
-            Leading teams, competing in hackathons, and building real systems under pressure
+            Experiences that shaped my technical expertise, leadership, and collaborative mindset.
           </p>
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           {stats.map((stat) => (
             <div key={stat.label} className="section-panel p-5 text-center">
-              <p className="text-3xl font-bold text-indigo-300">{stat.value}</p>
+              <p className="text-3xl font-bold text-indigo-700 dark:text-indigo-300">{stat.value}</p>
               <p className="mt-2 text-sm text-slate-400">{stat.label}</p>
             </div>
           ))}
@@ -66,20 +66,20 @@ export function Experience() {
           <div className="absolute left-4 top-0 h-full w-px bg-slate-800 sm:left-8 lg:left-12" />
           {entries.map((entry) => (
             <article key={entry.title} className="relative pl-8 sm:pl-10 lg:pl-12">
-              <div className="absolute left-0 top-2 h-5 w-5 rounded-full border-2 border-indigo-400 bg-[#0a0a0f] shadow-[0_0_0_6px_rgba(129,140,248,0.15)]" />
+              <div className="absolute left-0 top-2 h-5 w-5 rounded-full border-2 border-indigo-700 dark:border-indigo-400 bg-[#0a0a0f] shadow-[0_0_0_6px_rgba(129,140,248,0.15)]" />
               <div className="section-panel p-6 sm:p-7">
                 <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em]">
-                  <span className="rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 text-indigo-300">{entry.badge}</span>
+                  <span className="rounded-full border border-indigo-200/60 dark:border-indigo-500/30 bg-indigo-50 dark:bg-indigo-500/10 px-3 py-1 text-indigo-700 dark:text-indigo-300">{entry.badge}</span>
                   <span className="text-slate-500">{entry.context}</span>
                 </div>
                 <h3 className="mt-4 text-2xl font-bold text-white">{entry.title}</h3>
-                <p className="mt-2 text-sm font-semibold text-indigo-300">{entry.org}</p>
+                <p className="mt-2 text-sm font-semibold text-indigo-700 dark:text-indigo-300">{entry.org}</p>
                 <p className="mt-4 text-sm leading-7 text-slate-400">{entry.description}</p>
 
                 <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                   {entry.checklist.map((item) => (
                     <li key={item} className="flex gap-2 text-sm text-slate-300">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-400" />
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-700 dark:text-indigo-400" />
                       <span>{item}</span>
                     </li>
                   ))}

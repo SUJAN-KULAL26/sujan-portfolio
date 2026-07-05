@@ -1,14 +1,15 @@
-import { ArrowDown, BriefcaseBusiness, Download, FolderOpen, GitBranch, Mail } from 'lucide-react'
+import { ArrowDown, Download, FolderOpen } from 'lucide-react'
 import { useState } from 'react'
+import { FaEnvelope, FaGithub, FaLinkedinIn } from 'react-icons/fa6'
 import { RevealSection } from './RevealSection.jsx'
 
 export function Hero() {
   const [imageFailed, setImageFailed] = useState(false)
 
   const socialLinks = [
-    { icon: GitBranch, href: 'https://github.com/SUJAN-KULAL26', label: 'GitHub' },
-    { icon: BriefcaseBusiness, href: 'https://www.linkedin.com/in/sujan-p26', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:sujankulal26@gmail.com', label: 'Email' },
+    { icon: FaGithub, href: 'https://github.com/SUJAN-KULAL26', label: 'GitHub' },
+    { icon: FaLinkedinIn, href: 'https://www.linkedin.com/in/sujan-p26', label: 'LinkedIn' },
+    { icon: FaEnvelope, href: 'mailto:sujankulal26@gmail.com', label: 'Email' },
   ]
 
   return (
@@ -16,19 +17,19 @@ export function Hero() {
       <div className="section-shell pb-16 lg:pb-24">
         <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
           <div>
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-indigo-400">
+            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-indigo-700 dark:text-indigo-400">
               Portfolio
             </p>
-            <h1 className="max-w-4xl text-5xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl">
-              <span className="block text-slate-100">Hi, I&apos;m</span>
-              <span className="block text-indigo-300">Sujan P</span>
-            </h1>
-            <p className="mt-6 text-lg font-medium text-white sm:text-xl">
-              Software Engineer | Java Backend & Full-Stack Developer
-            </p>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-400 sm:text-lg">
-              Building scalable systems with Java, full-stack web apps, and a growing focus on cloud architecture and DevOps. I like understanding problems deeply before writing a single line of code.
-            </p>
+              <h1 className="max-w-4xl text-5xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl">
+                <span className="text-slate-100">Hi, I&apos;m </span>
+                <span className="text-indigo-700 dark:text-indigo-300">Sujan P</span>
+              </h1>
+              <p className="mt-6 text-lg font-medium text-white sm:text-xl">
+                Software Engineer | Java • Cloud • DevOps
+              </p>
+              <p className="mt-5 max-w-3xl text-base leading-8 text-slate-400 sm:text-lg">
+                I build reliable software and explore how cloud technologies make it scale — with a growing focus on Java, backend systems, and Linux.
+              </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
@@ -44,6 +45,16 @@ export function Hero() {
               </a>
               <a
                 href="/resume.pdf"
+                onClick={async (e) => {
+                  e.preventDefault()
+                  try {
+                    const res = await fetch('/resume.pdf', { method: 'HEAD' })
+                    if (res.ok) window.open('/resume.pdf', '_blank')
+                    else window.open('/resume.html', '_blank')
+                  } catch (err) {
+                    window.open('/resume.html', '_blank')
+                  }
+                }}
                 className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-700 px-6 py-3.5 text-sm font-semibold text-slate-200 transition hover:border-indigo-500 hover:text-white"
               >
                 <Download className="h-4 w-4" />
@@ -62,7 +73,7 @@ export function Hero() {
                     target={link.href.startsWith('http') ? '_blank' : undefined}
                     rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
                     aria-label={link.label}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-800 bg-[#111113] text-slate-300 transition hover:border-indigo-500 hover:text-indigo-300"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-800 bg-[#111113] text-slate-300 transition hover:border-indigo-500 hover:text-indigo-700 dark:hover:text-indigo-300"
                   >
                     <Icon className="h-4 w-4" />
                   </a>

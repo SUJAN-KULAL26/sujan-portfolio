@@ -3,7 +3,7 @@ export function SectionHeading({ eyebrow, title, subtitle, align = 'left' }) {
 
   return (
     <div className={alignmentClass}>
-      <p className="mb-3 text-sm font-semibold uppercase tracking-[0.32em] text-indigo-400">
+      <p className="mb-3 text-sm font-semibold uppercase tracking-[0.32em] text-indigo-700 dark:text-indigo-400">
         {eyebrow}
       </p>
       <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">

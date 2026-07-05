@@ -1,12 +1,13 @@
-import { ArrowRight, BriefcaseBusiness, Code2, GitBranch, Mail, Send } from 'lucide-react'
+import { ArrowRight, Code2, Send } from 'lucide-react'
 import { useState } from 'react'
+import { FaEnvelope, FaGithub, FaLinkedinIn } from 'react-icons/fa6'
 import { RevealSection } from './RevealSection.jsx'
 import { SectionHeading } from './SectionHeading.jsx'
 
 const contactLinks = [
-  { label: 'Email', value: 'sujankulal26@gmail.com', icon: Mail, href: 'mailto:sujankulal26@gmail.com' },
-  { label: 'GitHub', value: 'SUJAN-KULAL26', icon: GitBranch, href: 'https://github.com/SUJAN-KULAL26' },
-  { label: 'LinkedIn', value: 'sujan-p26', icon: BriefcaseBusiness, href: 'https://www.linkedin.com/in/sujan-p26' },
+  { label: 'Email', value: 'sujankulal26@gmail.com', icon: FaEnvelope, href: 'mailto:sujankulal26@gmail.com' },
+  { label: 'GitHub', value: 'SUJAN-KULAL26', icon: FaGithub, href: 'https://github.com/SUJAN-KULAL26' },
+  { label: 'LinkedIn', value: 'SUJAN P', icon: FaLinkedinIn, href: 'https://www.linkedin.com/in/sujan-p26' },
   { label: 'LeetCode', value: 'SUJAN_KULAL', icon: Code2, href: 'https://leetcode.com/u/SUJAN_KULAL' },
 ]
 
@@ -21,7 +22,7 @@ function ContactCard({ link }) {
       className="flex items-center justify-between rounded-xl border border-slate-800 bg-[#111113] px-4 py-4 transition hover:border-indigo-500/70 hover:bg-[#131318]"
     >
       <div className="flex items-center gap-4">
-        <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-indigo-500/30 bg-indigo-500/10 text-indigo-300">
+        <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-indigo-200/60 dark:border-indigo-500/30 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-300">
           <Icon className="h-5 w-5" />
         </span>
         <div>
@@ -29,7 +30,7 @@ function ContactCard({ link }) {
           <p className="mt-1 text-sm font-semibold text-white">{link.value}</p>
         </div>
       </div>
-      <ArrowRight className="h-4 w-4 text-indigo-300" />
+      <ArrowRight className="h-4 w-4 text-indigo-700 dark:text-indigo-300" />
     </a>
   )
 }
