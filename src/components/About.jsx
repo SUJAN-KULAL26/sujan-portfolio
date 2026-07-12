@@ -6,7 +6,7 @@ const stats = [
   { icon: GraduationCap, value: '9.5', label: 'CGPA' },
   { icon: Code2, value: '50+', label: 'LeetCode Problems' },
   { icon: Briefcase, value: '5', label: 'Projects Built' },
-  { icon: Award, value: '6', label: 'Certifications' },
+  { icon: Award, value: '8', label: 'Certifications' },
 ]
 
 export function About() {

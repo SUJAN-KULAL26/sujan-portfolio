@@ -39,6 +39,18 @@ const certifications = [
       'Learned to combine generative AI with data analytics to extract insights, automate workflows, and support data-driven decision making.',
     link: '/certificate/data-analytics-generative-ai.pdf',
   },
+  {
+  title: 'Deloitte | Data Analytics Job Simulation',
+  description:
+    'Completed Deloitte’s Data Analytics Job Simulation, applying Tableau and Excel to analyze business data, build interactive dashboards, and derive actionable insights through real-world analytics tasks.',
+  link: '/certificate/deloitte-data-analytics.pdf',
+},
+{
+  title: 'Tata Consultancy Services | Cybersecurity Job Simulation',
+  description:
+    'Completed Tata’s Cybersecurity Analyst Job Simulation, designing IAM solutions and implementation strategies using RBAC, MFA, SSO, and user lifecycle management to strengthen enterprise security.',
+  link: '/certificate/tata-cybersecurity.pdf',
+},
 ]
 
 export function Certifications() {
